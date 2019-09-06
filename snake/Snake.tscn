@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://snake/Snake.gd" type="Script" id=1]
+[ext_resource path="res://snake/SnakeSegment.tscn" type="PackedScene" id=2]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource( 1 )
+segments = [ NodePath("SnakeSegment"), NodePath("SnakeSegment2"), NodePath("SnakeSegment3") ]
+
+[node name="SnakeSegment" parent="." instance=ExtResource( 2 )]
+
+[node name="SnakeSegment2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -39 )
+
+[node name="SnakeSegment3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -79 )
