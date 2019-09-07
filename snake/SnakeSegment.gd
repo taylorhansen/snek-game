@@ -60,7 +60,8 @@ func _ready():
     set_physics_process(true)
 
 func _physics_process(delta):
-    # apply torque by applying force to both sides
+    # apply torque by applying force to both sides, centered around the other
+    #  side
     if _torque != 0:
         var offset: = Vector2(0, _height / 2)
         var force: = Vector2(_torque, 0)
