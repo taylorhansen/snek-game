@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tranqulity_1.ogg-7c9682eba859af3e33a93bc34eed4819.oggstr"
+
+[deps]
+
+source_file="res://tranqulity_1.ogg"
+dest_files=[ "res://.import/tranqulity_1.ogg-7c9682eba859af3e33a93bc34eed4819.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
