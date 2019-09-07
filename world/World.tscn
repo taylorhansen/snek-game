@@ -8,13 +8,13 @@ extents = Vector2( 200, 10 )
 [node name="World" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource( 1 )]
-position = Vector2( 399.445, 310.512 )
-rotation = 0.23432
+position = Vector2( 461.246, 324.078 )
+rotation = -0.233874
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"wall",
+]]
 position = Vector2( 455.217, 517.018 )
-collision_layer = 3
-collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
