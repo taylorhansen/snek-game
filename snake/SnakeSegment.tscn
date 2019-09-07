@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://snake/SnakeSegment.gd" type="Script" id=1]
 [ext_resource path="res://snake/snake-segment.png" type="Texture" id=2]
+[ext_resource path="res://sound/fx/grab.wav" type="AudioStream" id=3]
+[ext_resource path="res://sound/fx/grab_release.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -15,3 +17,13 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.5
+pitch_scale = 4.0
+
+[node name="GrabReleaseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 0.5
+pitch_scale = 4.0

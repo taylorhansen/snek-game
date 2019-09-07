@@ -4,6 +4,9 @@ class_name SnakeSegment
 # hitbox height
 onready var _height = $CollisionShape2D.shape.height
 
+onready var _grab_sound: AudioStreamPlayer2D = $GrabSound
+onready var _grab_release_sound: AudioStreamPlayer2D = $GrabReleaseSound
+
 # current torque value
 var _torque: float = 0
 # whether to apply the rotational force to the top or the bottom
@@ -12,6 +15,8 @@ var _top: bool = true
 # grips this segment to a wall by changing into a static body
 func grip():
     if is_touching_wall():
+        if not is_gripping():
+            _grab_sound.play()
         mode = MODE_STATIC
 
 # checks if we're currently gripping something
@@ -20,6 +25,8 @@ func is_gripping():
 
 # ungrips this segment from a wall by changing back into a rigid body
 func ungrip():
+    if is_gripping():
+        _grab_release_sound.play()
     mode = MODE_RIGID
 
 # checks if we're touching a wall body
