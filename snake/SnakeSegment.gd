@@ -1,23 +1,22 @@
 extends RigidBody2D
 class_name SnakeSegment
 
+# hitbox height
 onready var _height = $CollisionShape2D.shape.height
 
 # wall bodies currently touching this segment
 var _walls: Array = []
+# current torque value
 var _torque: float = 0
-
-func rotate_left(force: float):
-    _torque = -force
-
-func rotate_right(force: float):
-    _torque = force
+# whether to apply the rotational force to the top or the bottom
+var _top: bool = true
 
 # grips this segment to a wall by changing into a static body
 func grip():
     if is_touching_wall():
         mode = MODE_STATIC
 
+# checks if we're currently gripping something
 func is_gripping():
     return mode == MODE_STATIC
 
@@ -29,13 +28,33 @@ func ungrip():
 func is_touching_wall() -> bool:
     return len(_walls) > 0
 
+# rotates this segment to the left, where top will apply the force to the top of
+#  the segment if true, or bottom if false
+func rotate_left(force: float, top: bool):
+    _torque = -force
+    _top = top
+
+# rotates this segment to the right, where top will apply the force to the top
+#  of the segment if true, or bottom if false
+func rotate_right(force: float, top: bool):
+    _torque = force
+    _top = top
+
+# stops rotation
+func rotate_stop():
+    _torque = 0
+
 func _ready():
     set_physics_process(true)
 
 func _physics_process(delta):
     # apply torque forces
+    # apply the force to the top or bottom by switching the sign of the height
+    #  and torque values
+    var offset_sign = -1 if _top else 1
     if _torque != 0:
-        apply_impulse(Vector2(0, -_height / 2), Vector2(_torque, 0) * delta)
+        apply_impulse(Vector2(0, offset_sign * _height / 2),
+            Vector2(-offset_sign * _torque, 0) * delta)
 
 func _on_SnakeSegment_body_entered(body: Node):
     if body is StaticBody2D:

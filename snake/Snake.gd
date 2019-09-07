@@ -11,48 +11,54 @@ onready var _seg4: SnakeSegment = $SnakeSegment4
 # head segment
 onready var _head: SnakeSegment = $Head
 
-func _input(event: InputEvent):
+func _ready():
+    set_process(true)
+
+func _process(delta):
     # head grip
-    if event.is_action_pressed("head_grip"):
-        _head.grip()
-    elif event.is_action_released("head_grip"):
-        _head.ungrip()
-    # head left
-    if event.is_action_pressed("head_left"):
-        _head_left()
-    elif event.is_action_released("head_left"):
-        _head_stop()
-    # head right
-    if event.is_action_pressed("head_right"):
-        _head_right()
-    elif event.is_action_released("head_right"):
-        _head_stop()
+    if Input.is_action_pressed("head_grip"): _head.grip()
+    else: _head.ungrip()
+
     # tail grip
-    elif event.is_action_pressed("tail_grip"):
-        _tail.grip()
-    elif event.is_action_released("tail_grip"):
-        _tail.ungrip()
+    if Input.is_action_pressed("tail_grip"): _tail.grip()
+    else: _tail.ungrip()
 
-func _head_left():
-    if not _tail.is_touching_wall() or not _tail.is_gripping():
-        _head_stop()
-        return
-    # apply a force to each segment excluding tail
+    # head rotate (can only happen if tail is gripped and head is free)
+    if Input.is_action_pressed("head_left") and _tail.is_gripping() and \
+            not _head.is_gripping():
+        _rotate_tip(true, true)
+    elif Input.is_action_pressed("head_right") and _tail.is_gripping() and \
+            not _head.is_gripping():
+        _rotate_tip(true, false)
+    # tail rotate (can only happen if head is gripped and tail is free)
+    elif Input.is_action_pressed("tail_left") and _head.is_gripping() and \
+            not _tail.is_gripping():
+        _rotate_tip(false, true)
+    elif Input.is_action_pressed("tail_right") and _head.is_gripping() and \
+            not _tail.is_gripping():
+        _rotate_tip(false, false)
+    # stop rotation of all segments if no suitable rotate input
+    else:
+        for seg in [_tail, _seg2, _seg3, _seg4, _head]:
+            seg.rotate_stop()
+
+# starts rotating one of the snake's tips
+func _rotate_tip(head: bool, left: bool):
+    # make sure the other tip doesn't rotate
+    var tip: SnakeSegment = _tail if head else _head
+    tip.rotate_stop()
+
+    # decide which segments will be rotated
+    # earlier indexes are given greater torque since they're lifting up
+    #  themselves and other segments
+    var segments: Array
+    if head: segments = [_seg2, _seg3, _seg4, _head]
+    else: segments = [_seg4, _seg3, _seg2, _tail]
+
+    # apply a force to each selected segment
     var force = ROTATE_FORCE
-    for seg in [_seg2, _seg3, _seg4, _head]:
-        seg.rotate_left(force)
+    for seg in segments:
+        # "top" param should be true if we're rotating the head, false if tail
+        if left: seg.rotate_left(force, head)
+        else: seg.rotate_right(force, head)
         force *= SEGMENT_SCALING
-
-func _head_right():
-    if not _tail.is_touching_wall() or not _tail.is_gripping():
-        _head_stop()
-        return
-    # apply a force to each segment excluding tail
-    var force = ROTATE_FORCE
-    for seg in [_seg2, _seg3, _seg4, _head]:
-        seg.rotate_right(force)
-        force *= SEGMENT_SCALING
-
-func _head_stop():
-    for seg in [_seg2, _seg3, _seg4, _head]:
-        seg.rotate_left(0)
