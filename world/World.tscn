@@ -8,8 +8,8 @@ extents = Vector2( 200, 10 )
 [node name="World" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource( 1 )]
-position = Vector2( 441.746, 248.718 )
-rotation = -5.48732
+position = Vector2( 399.445, 310.512 )
+rotation = 0.23432
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 455.217, 517.018 )
