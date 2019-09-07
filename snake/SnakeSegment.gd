@@ -51,12 +51,15 @@ func _physics_process(delta):
     # apply torque forces
     # apply the force to the top or bottom by switching the sign of the height
     #  and torque values
-    var offset_sign = -1 if _top else 1
     if _torque != 0:
-        apply_impulse(Vector2(0, offset_sign * _height / 2),
-            Vector2(-offset_sign * _torque, 0) * delta)
+        var offset_sign = -1 if _top else 1
+        var offset: = Vector2(0, offset_sign * _height / 2)
+        var force: = Vector2(-offset_sign * _torque, 0)
+        apply_impulse(offset, force * delta)
 
 func _on_SnakeSegment_body_entered(body: Node):
+    # collision bit 1 is for walls so if the collider has that we can add it to
+    #  the _walls array
     if body is StaticBody2D:
         if (body as StaticBody2D).get_collision_layer_bit(1):
             _walls.append(body)
