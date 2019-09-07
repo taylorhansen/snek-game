@@ -54,5 +54,5 @@ func _physics_process(delta):
         var offset: = Vector2(0, _height / 2)
         var force: = Vector2(_torque, 0)
         var impulse: Vector2 = force * delta
-        apply_impulse(offset, impulse)
-        apply_impulse(-offset, -impulse)
+        apply_impulse(offset, -impulse)
+        apply_impulse(-offset, impulse)
