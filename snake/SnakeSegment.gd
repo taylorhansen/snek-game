@@ -91,9 +91,7 @@ func _integrate_forces(state: Physics2DDirectBodyState):
                 var len2 = proj.length_squared()
                 print("normal ", normal, " vel ", vel, " proj ", proj, " len2 ",
                     len2)
-                if len2 > 200:
-                    _thump_sound.play()
-                else:
-                    _hit_sound.play()
+                #if len2 > 200: _thump_sound.play()
+                #else: _hit_sound.play()
                 break
         _contact_body = null
