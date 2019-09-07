@@ -22,7 +22,6 @@ _global_script_class_icons={
 
 config/name="mini-jam-36-nature"
 run/main_scene="res://world/World.tscn"
-config/icon="res://icon.png"
 
 [display]
 
