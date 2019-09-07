@@ -1,28 +1,30 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://snake/SnakeSegment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://snake/Snake.gd" type="Script" id=1]
+[ext_resource path="res://snake/SnakeSegment.tscn" type="PackedScene" id=2]
 
 [node name="Snake" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="SnakeSegment" parent="." instance=ExtResource( 1 )]
+[node name="Tail" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 1 )
 
-[node name="SnakeSegment2" parent="." instance=ExtResource( 1 )]
+[node name="SnakeSegment2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -39 )
 
-[node name="SnakeSegment3" parent="." instance=ExtResource( 1 )]
+[node name="SnakeSegment3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -79 )
 
-[node name="SnakeSegment4" parent="." instance=ExtResource( 1 )]
+[node name="SnakeSegment4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -119 )
 
-[node name="SnakeSegment5" parent="." instance=ExtResource( 1 )]
+[node name="Head" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -159 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 visible = false
 position = Vector2( 0, -19 )
-node_a = NodePath("../SnakeSegment")
+node_a = NodePath("../Tail")
 node_b = NodePath("../SnakeSegment2")
 bias = 0.5
 disable_collision = false
@@ -50,7 +52,7 @@ softness = 2.0
 visible = false
 position = Vector2( 0, -139 )
 node_a = NodePath("../SnakeSegment4")
-node_b = NodePath("../SnakeSegment5")
+node_b = NodePath("../Head")
 bias = 0.5
 disable_collision = false
 softness = 2.0
