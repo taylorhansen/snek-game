@@ -49,11 +49,10 @@ func _ready():
     set_physics_process(true)
 
 func _physics_process(delta):
-    # apply torque forces
-    # apply the force to the top or bottom by switching the sign of the height
-    #  and torque values
+    # apply torque by applying force to both sides
     if _torque != 0:
-        var offset_sign = -1 if _top else 1
-        var offset: = Vector2(0, offset_sign * _height / 2)
-        var force: = Vector2(-offset_sign * _torque, 0)
-        apply_impulse(offset, force * delta)
+        var offset: = Vector2(0, _height / 2)
+        var force: = Vector2(_torque, 0)
+        var impulse: Vector2 = force * delta
+        apply_impulse(offset, impulse)
+        apply_impulse(-offset, -impulse)
