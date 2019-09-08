@@ -3,6 +3,9 @@ extends Node
 onready var root: = get_tree().get_root()
 onready var current_scene: = root.get_child(root.get_child_count() - 1)
 
+func _ready():
+    randomize()
+
 # queues a scene change at the end of the process loop
 func goto_scene(scene: Resource):
     call_deferred("_goto_scene_deferred", scene)
