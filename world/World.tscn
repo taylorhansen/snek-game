@@ -37,14 +37,24 @@ shape = SubResource( 1 )
 color = Color( 0.239216, 0.764706, 0.133333, 1 )
 polygon = PoolVector2Array( -2048, 25, -2048, -25, 2048, -25, 2048, 25 )
 
-[node name="InvisibleBarrier" type="StaticBody2D" parent="."]
+[node name="LeftBarrier" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 0, -424 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleBarrier"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBarrier"]
+shape = SubResource( 2 )
+
+[node name="RightBarrier" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 4096, -424 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBarrier"]
 shape = SubResource( 2 )
 
 [node name="Tree" type="StaticBody2D" parent="." groups=[
