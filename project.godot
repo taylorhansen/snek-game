@@ -82,4 +82,5 @@ head_right={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.294118, 0.635294, 0.741176, 1 )
 environment/default_environment="res://default_env.tres"
