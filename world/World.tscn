@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/tree.png" type="Texture" id=2]
 [ext_resource path="res://sound/music/tranqulity.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 200, 10 )
+extents = Vector2( 1024, 25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 1024 )
 
 [node name="World" type="Node2D"]
 
@@ -13,21 +16,35 @@ extents = Vector2( 200, 10 )
 position = Vector2( 494.407, 212.535 )
 rotation = -1.57879
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+[node name="Grass" type="StaticBody2D" parent="." groups=[
 "wall",
 ]]
-position = Vector2( 455.217, 517.018 )
+position = Vector2( 1024, 575 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass"]
 shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Grass"]
+color = Color( 0.317647, 0.682353, 0.0901961, 1 )
+polygon = PoolVector2Array( -1024, 25, -1024, -25, 1024, -25, 1024, 25 )
+
+[node name="InvisibleBarrier" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, -424 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleBarrier"]
+shape = SubResource( 2 )
 
 [node name="Tree" type="StaticBody2D" parent="." groups=[
 "wall",
 ]]
-position = Vector2( 978.139, -570.545 )
+position = Vector2( 1382.01, -487.774 )
 scale = Vector2( 3, 3 )
 __meta__ = {
 "_edit_group_": true
