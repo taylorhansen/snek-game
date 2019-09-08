@@ -1,5 +1,4 @@
 extends RigidBody2D
-class_name SnakeSegment
 
 # hitbox height
 onready var _height = $CollisionShape2D.shape.height

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grab_release.wav-a353d107110a295e77d3b066c76f2d51.sample"
+
+[deps]
+
+source_file="res://snake/segment/grab_release.wav"
+dest_files=[ "res://.import/grab_release.wav-a353d107110a295e77d3b066c76f2d51.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

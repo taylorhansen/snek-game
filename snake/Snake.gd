@@ -4,12 +4,12 @@ const ROTATE_FORCE = 1000
 const SEGMENT_SCALING = 0.75
 
 # tail segment
-onready var _tail: SnakeSegment = $Tail
-onready var _seg2: SnakeSegment = $SnakeSegment2
-onready var _seg3: SnakeSegment = $SnakeSegment3
-onready var _seg4: SnakeSegment = $SnakeSegment4
+onready var _tail: = $Tail
+onready var _seg2: = $SnakeSegment2
+onready var _seg3: = $SnakeSegment3
+onready var _seg4: = $SnakeSegment4
 # head segment
-onready var _head: SnakeSegment = $Head
+onready var _head: = $Head
 
 func _ready():
     set_process(true)
@@ -45,7 +45,7 @@ func _process(delta):
 # starts rotating one of the snake's tips
 func _rotate_tip(head: bool, left: bool):
     # make sure the other tip doesn't rotate
-    var tip: SnakeSegment = _tail if head else _head
+    var tip: = _tail if head else _head
     tip.rotate_stop()
 
     # decide which segments will be rotated
