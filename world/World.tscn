@@ -89,14 +89,14 @@ text = "PAUSED"
 align = 1
 valign = 1
 
-[node name="Continue" type="Button" parent="CanvasLayer/PauseMenu"]
+[node name="Restart" type="Button" parent="CanvasLayer/PauseMenu"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -512.0
 margin_top = -128.0
-text = "Continue"
+text = "Restart"
 
 [node name="Quit" type="Button" parent="CanvasLayer/PauseMenu"]
 anchor_top = 1.0
@@ -136,8 +136,9 @@ margin_top = -128.0
 margin_right = 512.0
 text = "Quit"
 [connection signal="ball_entered" from="Basket" to="." method="_on_Basket_ball_entered"]
+[connection signal="game_over" from="Basket" to="." method="_on_Basket_game_over"]
 [connection signal="pause" from="CanvasLayer/PauseMenu" to="." method="_pause"]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="." method="_unpause"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Restart" to="." method="_restart"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="." method="_quit"]
 [connection signal="pressed" from="CanvasLayer/WinMenu/Restart" to="." method="_restart"]
 [connection signal="pressed" from="CanvasLayer/WinMenu/Quit" to="." method="_quit"]
