@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://world/World.gd" type="Script" id=1]
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://basket/Basket.tscn" type="PackedScene" id=5]
 [ext_resource path="res://theme/theme.tres" type="Theme" id=6]
 [ext_resource path="res://world/PauseMenu.gd" type="Script" id=7]
+[ext_resource path="res://world/WinMenu.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2048, 25 )
@@ -103,7 +104,40 @@ anchor_bottom = 1.0
 margin_top = -128.0
 margin_right = 512.0
 text = "Quit"
+
+[node name="WinMenu" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CanvasLayer/WinMenu"]
+anchor_right = 1.0
+margin_bottom = 101.0
+text = "YOU WIN
+PLAY TIME: 0.0s"
+align = 1
+valign = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer/WinMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -128.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CanvasLayer/WinMenu"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -128.0
+margin_right = 512.0
+text = "Quit"
 [connection signal="ball_entered" from="Basket" to="." method="_on_Basket_ball_entered"]
 [connection signal="pause" from="CanvasLayer/PauseMenu" to="." method="_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="." method="_unpause"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="." method="_quit"]
+[connection signal="pressed" from="CanvasLayer/WinMenu/Restart" to="." method="_restart"]
+[connection signal="pressed" from="CanvasLayer/WinMenu/Quit" to="." method="_quit"]
