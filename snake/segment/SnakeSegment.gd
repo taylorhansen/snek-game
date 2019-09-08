@@ -10,6 +10,7 @@ onready var _grab_release_sound: AudioStreamPlayer2D = $GrabReleaseSound
 var _torque: float = 0
 # whether to apply the rotational force to the top or the bottom
 var _top: bool = true
+# current attached node
 var _attached = null
 
 # grips this segment to a nearby wall or other object
