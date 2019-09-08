@@ -1,0 +1,14 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+flag_disable_z = true
+spread = 30.0
+flatness = 0.2
+gravity = Vector3( -200, 0, 0 )
+initial_velocity = 250.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 0.2
+color = Color( 0.917647, 0.0588235, 0.0588235, 1 )
