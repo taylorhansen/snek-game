@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sound/music/tranqulity.ogg" type="AudioStream" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 10 )
@@ -8,8 +9,8 @@ extents = Vector2( 200, 10 )
 [node name="World" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource( 1 )]
-position = Vector2( 461.246, 324.078 )
-rotation = -0.233874
+position = Vector2( 494.407, 212.535 )
+rotation = -1.57879
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "wall",
@@ -21,3 +22,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
+
+[node name="Tranquility" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
