@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://snake/SnakeSegment.gd" type="Script" id=1]
 [ext_resource path="res://snake/snake-segment.png" type="Texture" id=2]
 [ext_resource path="res://sound/fx/grab.wav" type="AudioStream" id=3]
 [ext_resource path="res://sound/fx/grab_release.wav" type="AudioStream" id=4]
-[ext_resource path="res://sound/fx/hit.wav" type="AudioStream" id=5]
-[ext_resource path="res://sound/fx/thump.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -31,12 +29,3 @@ stream = ExtResource( 4 )
 volume_db = 0.5
 pitch_scale = 2.0
 bus = "SFX"
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="ThumpSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 6 )
-bus = "SFX"
-[connection signal="body_entered" from="." to="." method="_on_SnakeSegment_body_entered"]
