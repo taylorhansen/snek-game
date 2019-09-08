@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/requiem.ogg-74c6e653dc36c2707d11a9851c6dd098.oggstr"
+
+[deps]
+
+source_file="res://music/requiem.ogg"
+dest_files=[ "res://.import/requiem.ogg-74c6e653dc36c2707d11a9851c6dd098.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
