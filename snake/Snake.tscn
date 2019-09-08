@@ -15,6 +15,16 @@ position = Vector2( 0, -39 )
 [node name="SnakeSegment3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -79 )
 
+[node name="Camera2D" type="Camera2D" parent="SnakeSegment3"]
+current = true
+smoothing_enabled = true
+drag_margin_left = 0.5
+drag_margin_top = 0.5
+drag_margin_right = 0.5
+drag_margin_bottom = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
 [node name="SnakeSegment4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -119 )
 
