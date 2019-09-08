@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 [node name="SnakeSegment" type="RigidBody2D"]
+gravity_scale = 2.0
 contacts_reported = 5
 contact_monitor = true
 script = ExtResource( 1 )

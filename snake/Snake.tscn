@@ -40,7 +40,7 @@ node_a = NodePath("../Tail")
 node_b = NodePath("../SnakeSegment2")
 bias = 0.5
 disable_collision = false
-softness = 2.0
+softness = 1.0
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 visible = false
@@ -49,7 +49,7 @@ node_a = NodePath("../SnakeSegment2")
 node_b = NodePath("../SnakeSegment3")
 bias = 0.5
 disable_collision = false
-softness = 2.0
+softness = 1.0
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
 visible = false
@@ -58,7 +58,7 @@ node_a = NodePath("../SnakeSegment3")
 node_b = NodePath("../SnakeSegment4")
 bias = 0.5
 disable_collision = false
-softness = 2.0
+softness = 1.0
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]
 visible = false
@@ -67,4 +67,4 @@ node_a = NodePath("../SnakeSegment4")
 node_b = NodePath("../Head")
 bias = 0.5
 disable_collision = false
-softness = 2.0
+softness = 1.0

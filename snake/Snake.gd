@@ -1,6 +1,6 @@
 extends Node2D
 
-const ROTATE_FORCE = 1000
+const ROTATE_FORCE = 1500
 const SEGMENT_SCALING = 0.75
 
 # tail segment
