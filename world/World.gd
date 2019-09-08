@@ -20,3 +20,6 @@ func _unpause():
 
 func _quit():
     get_tree().quit()
+
+func _on_Basket_ball_entered():
+    print("yay!")

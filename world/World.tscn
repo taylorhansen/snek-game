@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://world/World.gd" type="Script" id=1]
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/tree.png" type="Texture" id=3]
 [ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://theme/theme.tres" type="Theme" id=5]
-[ext_resource path="res://world/PauseMenu.gd" type="Script" id=6]
+[ext_resource path="res://basket/Basket.tscn" type="PackedScene" id=5]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=6]
+[ext_resource path="res://world/PauseMenu.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2048, 25 )
@@ -64,6 +65,9 @@ polygon = PoolVector2Array( -106.2, 351.142, 87.5664, 345.14, 45.5551, 317.704, 
 [node name="Ball" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2999.95, 502.589 )
 
+[node name="Basket" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3089, 537 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -71,8 +75,8 @@ pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 5 )
-script = ExtResource( 6 )
+theme = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
 anchor_left = 0.5
@@ -99,6 +103,7 @@ anchor_bottom = 1.0
 margin_top = -128.0
 margin_right = 512.0
 text = "Quit"
+[connection signal="ball_entered" from="Basket" to="." method="_on_Basket_ball_entered"]
 [connection signal="pause" from="CanvasLayer/PauseMenu" to="." method="_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="." method="_unpause"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="." method="_quit"]
