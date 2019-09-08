@@ -27,7 +27,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Grass"]
-color = Color( 0.317647, 0.682353, 0.0901961, 1 )
+color = Color( 0.239216, 0.764706, 0.133333, 1 )
 polygon = PoolVector2Array( -1024, 25, -1024, -25, 1024, -25, 1024, 25 )
 
 [node name="InvisibleBarrier" type="StaticBody2D" parent="."]
