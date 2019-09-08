@@ -14,7 +14,6 @@ func _select_song(except: AudioStream):
         # reroll
         _select_song(except)
     else:
-        print("playing")
         # set the selected song to play
         stream = song
         play()
