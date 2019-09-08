@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://world/World.gd" type="Script" id=1]
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/tree.png" type="Texture" id=3]
-[ext_resource path="res://menus/theme.tres" type="Theme" id=4]
-[ext_resource path="res://world/PauseMenu.gd" type="Script" id=5]
+[ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=5]
+[ext_resource path="res://world/PauseMenu.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1024, 25 )
+extents = Vector2( 2048, 25 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 1024 )
@@ -22,7 +23,7 @@ rotation = -1.57879
 [node name="Grass" type="StaticBody2D" parent="." groups=[
 "wall",
 ]]
-position = Vector2( 1024, 575 )
+position = Vector2( 2048, 575 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -32,7 +33,7 @@ shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Grass"]
 color = Color( 0.239216, 0.764706, 0.133333, 1 )
-polygon = PoolVector2Array( -1024, 25, -1024, -25, 1024, -25, 1024, 25 )
+polygon = PoolVector2Array( -2048, 25, -2048, -25, 2048, -25, 2048, 25 )
 
 [node name="InvisibleBarrier" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -60,6 +61,9 @@ texture = ExtResource( 3 )
 build_mode = 1
 polygon = PoolVector2Array( -106.2, 351.142, 87.5664, 345.14, 45.5551, 317.704, 44.6977, 214.819, 45.5551, 135.94, 54.1288, 81.0684, 89.2812, -22.674, 153.584, -56.1117, 66.132, -39.8215, 48.1272, -18.3871, 66.132, -102.41, 98.7123, -135.848, 156.156, -158.139, 99.5697, -160.711, 51.5567, -131.561, 44.6977, -137.562, 74.7058, -212.154, 108.143, -223.3, 143.296, -218.156, 114.145, -249.021, 76.4206, -237.018, 54.9862, -288.46, 24.1206, -291.033, 45.555, -272.17, 53.2714, -239.59, 21.3, -195.165, 1.82889, -252.451, -34.1809, -273.885, -47.0415, -304.75, -42.7547, -264.454, -11.0318, -228.444, -13.7644, -167.893, -37.6104, -196.721, -73.6202, -200.151, -97.6267, -243.019, -83.0513, -188.147, -50.471, -180.431, -31.6088, -136.705, -41.6382, -46.1449, -85.6234, -81.8328, -124.205, -90.4066, -151.641, -121.272, -136.209, -62.1132, -101.056, -57.8263, -61.6169, -9.81329, -90.7677, -14.9576, -140.495, -22.6739, -189.366, 29.626, -140.495, 3.90472, -110.487, 22.767, -60.7596, 106.79, -66.7612, 211.39, -67.6185, 289.411, -65.0464, 315.132, -105.343, 350.284 )
 
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2999.95, 502.589 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -67,8 +71,8 @@ pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 4 )
-script = ExtResource( 5 )
+theme = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
 anchor_left = 0.5
