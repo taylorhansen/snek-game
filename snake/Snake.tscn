@@ -17,6 +17,8 @@ position = Vector2( 0, -79 )
 
 [node name="Camera2D" type="Camera2D" parent="SnakeSegment3"]
 current = true
+limit_left = 0
+limit_bottom = 600
 smoothing_enabled = true
 drag_margin_left = 0.5
 drag_margin_top = 0.5
