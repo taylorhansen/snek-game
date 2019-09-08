@@ -24,18 +24,18 @@ func _process(delta):
     else: _tail.ungrip()
 
     # head rotate (can only happen if tail is gripped and head is free)
-    if Input.is_action_pressed("head_left") and _tail.is_gripping() and \
-            not _head.is_gripping():
+    if Input.is_action_pressed("head_left") and _tail.is_gripping_wall() and \
+            not _head.is_gripping_wall():
         _rotate_tip(true, true)
-    elif Input.is_action_pressed("head_right") and _tail.is_gripping() and \
-            not _head.is_gripping():
+    elif Input.is_action_pressed("head_right") and \
+            _tail.is_gripping_wall() and not _head.is_gripping_wall():
         _rotate_tip(true, false)
     # tail rotate (can only happen if head is gripped and tail is free)
-    elif Input.is_action_pressed("tail_left") and _head.is_gripping() and \
-            not _tail.is_gripping():
+    elif Input.is_action_pressed("tail_left") and _head.is_gripping_wall() and \
+            not _tail.is_gripping_wall():
         _rotate_tip(false, true)
-    elif Input.is_action_pressed("tail_right") and _head.is_gripping() and \
-            not _tail.is_gripping():
+    elif Input.is_action_pressed("tail_right") and \
+            _head.is_gripping_wall() and not _tail.is_gripping_wall():
         _rotate_tip(false, false)
     # stop rotation of all segments if no suitable rotate input
     else:

@@ -10,30 +10,63 @@ onready var _grab_release_sound: AudioStreamPlayer2D = $GrabReleaseSound
 var _torque: float = 0
 # whether to apply the rotational force to the top or the bottom
 var _top: bool = true
+var _attached = null
 
-# grips this segment to a wall by changing into a static body
+# grips this segment to a nearby wall or other object
 func grip():
-    if is_touching_wall():
-        if not is_gripping():
-            _grab_sound.play()
-        mode = MODE_STATIC
+    # early return: already gripping something
+    if is_gripping(): return
 
-# checks if we're currently gripping something
-func is_gripping():
-    return mode == MODE_STATIC
+    # checks if we just gripped something
+    var gripped: = false
+
+    for body in get_colliding_bodies():
+        if body.is_in_group("wall"):
+            # gripping a wall
+            gripped = mode != MODE_STATIC
+            mode = MODE_STATIC
+            _attached = body
+            break
+        elif body.is_in_group("ball"):
+            var path: = self.get_path()
+            gripped = body.is_attached_to(path)
+            body.attach_to(path)
+            _attached = body
+            break
+
+    # play grab sound
+    if gripped: _grab_sound.play()
+
+# checks if we're currently gripping an object
+func is_gripping() -> bool:
+    return _attached != null
+
+# checks if we're currently gripping a wall
+func is_gripping_wall() -> bool:
+    return _attached and _attached.is_in_group("wall") and mode == MODE_STATIC
+
+# checks if we're currently gripping a ball
+func is_gripping_ball() -> bool:
+    return _attached and _attached.is_in_group("ball")
 
 # ungrips this segment from a wall by changing back into a rigid body
 func ungrip():
-    if is_gripping():
-        _grab_release_sound.play()
-    mode = MODE_RIGID
+    # checks if we just ungripped something
+    var ungripped: = false
 
-# checks if we're touching a wall body
-func is_touching_wall() -> bool:
-    for body in get_colliding_bodies():
-        if body.is_in_group("wall"):
-            return true
-    return false
+    if is_gripping_wall():
+        # change back into a static body
+        ungripped = true
+        mode = MODE_RIGID
+        _attached = null
+    elif is_gripping_ball():
+        # detach from the ball
+        ungripped = true
+        _attached.detach()
+        _attached = null
+
+    if ungripped:
+        _grab_release_sound.play()
 
 # rotates this segment to the left, where top will apply the force to the top of
 #  the segment if true, or bottom if false
