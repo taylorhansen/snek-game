@@ -1,1 +1,1 @@
-# mini-jam-36-nature
+# snek-game
