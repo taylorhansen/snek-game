@@ -10,7 +10,7 @@ func _ready():
 func _select_song(except: AudioStream):
     var i = int(rand_range(0, len(songs)))
     var song = songs[i]
-    if song == except:
+    if song != except:
         # reroll
         _select_song(except)
     else:
