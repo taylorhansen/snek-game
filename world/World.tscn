@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://world/World.gd" type="Script" id=1]
 [ext_resource path="res://snake/Snake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/tree.png" type="Texture" id=3]
-[ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://basket/Basket.tscn" type="PackedScene" id=5]
-[ext_resource path="res://theme/theme.tres" type="Theme" id=6]
-[ext_resource path="res://world/PauseMenu.gd" type="Script" id=7]
-[ext_resource path="res://world/WinMenu.gd" type="Script" id=8]
+[ext_resource path="res://world/tree_2.png" type="Texture" id=4]
+[ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://basket/Basket.tscn" type="PackedScene" id=6]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=7]
+[ext_resource path="res://world/PauseMenu.gd" type="Script" id=8]
+[ext_resource path="res://world/WinMenu.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2048, 25 )
+extents = Vector2( 2560, 25 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 1024 )
@@ -25,7 +26,7 @@ rotation = 1.5708
 [node name="Grass" type="StaticBody2D" parent="." groups=[
 "wall",
 ]]
-position = Vector2( 2048, 575 )
+position = Vector2( 2560, 575 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -35,7 +36,7 @@ shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Grass"]
 color = Color( 0.239216, 0.764706, 0.133333, 1 )
-polygon = PoolVector2Array( -2048, 25, -2048, -25, 2048, -25, 2048, 25 )
+polygon = PoolVector2Array( -2560, 25, -2560, -25, 2560, -25, 2560, 25 )
 
 [node name="LeftBarrier" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -49,7 +50,7 @@ shape = SubResource( 2 )
 
 [node name="RightBarrier" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 4096, -424 )
+position = Vector2( 5120, -424 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -60,7 +61,7 @@ shape = SubResource( 2 )
 [node name="Tree" type="StaticBody2D" parent="." groups=[
 "wall",
 ]]
-position = Vector2( 1408, -291 )
+position = Vector2( 1408, -282 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -70,13 +71,29 @@ texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree"]
 build_mode = 1
-polygon = PoolVector2Array( 223.99, 834.774, 128.99, 767.774, 116.99, 377.774, 128.99, 222.774, 141.99, 56.774, 244.99, -142.226, 441.99, -216.226, 197.99, -214.226, 117.99, -133.226, 169.99, -365.226, 261.99, -442.226, 389.99, -493.226, 242.99, -495.226, 122.99, -422.226, 185.99, -605.226, 274.99, -664.226, 369.99, -634.226, 282.99, -722.226, 197.99, -694.226, 138.99, -813.226, 65.99, -826.226, 119.99, -778.226, 131.99, -698.226, 63.99, -555.226, 16.99, -727.226, -72.01, -777.226, -105.01, -855.226, -102.01, -754.226, -20.01, -676.226, -17.01, -466.226, -97.01, -582.226, -189.01, -602.226, -248.01, -686.226, -252.01, -673.226, -204.01, -560.226, -117.01, -546.226, -81.01, -439.226, -81.01, -202.226, -186.01, -311.226, -290.01, -335.226, -356.01, -419.226, -314.01, -285.226, -221.01, -237.226, -144.01, -124.226, -195.01, -157.226, -314.01, -178.226, -466.01, -110.226, -335.01, -110.226, -257.01, -76.226, -180.01, 63.774, -139.01, 124.774, -139.01, 305.774, -145.01, 476.774, -165.01, 751.774, -245.01, 843.774 )
+polygon = PoolVector2Array( 237, 833, 128.99, 767.774, 111, 375, 115, 294, 141.99, 56.774, 185, -42, 244, -144, 439, -209, 441, -224, 288, -227, 197.99, -214.226, 115, -136, 131, -189, 169.99, -365.226, 261, -447, 390, -491, 376, -500, 240, -499, 122, -420, 93, -365, 130, -468, 185, -608, 274, -659, 369.99, -634.226, 374, -649, 288, -720, 197.99, -694.226, 176, -754, 138, -816, 65.99, -826.226, 65, -817, 119.99, -778.226, 131.99, -698.226, 59, -554, 22, -727, -72.01, -777.226, -105.01, -855.226, -113, -843, -102.01, -754.226, -23, -674, -17.01, -466.226, -97.01, -582.226, -126, -594, -189, -604, -253, -690, -256, -674, -209, -558, -163, -548, -118, -550, -79, -442, -74, -326, -81.01, -202.226, -186.01, -311.226, -290.01, -335.226, -345, -412, -355, -405, -319, -285, -236, -248, -137, -130, -114, -77, -203, -159, -271, -175, -314.01, -178.226, -466.01, -110.226, -444, -99, -336, -112, -304, -92, -258, -74, -180.01, 63.774, -140, 127, -139.01, 305.774, -145.01, 476.774, -151, 601, -163, 759, -245, 833, -248, 843 )
 
-[node name="Ball" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2966, 539 )
+[node name="Tree2" type="StaticBody2D" parent="." groups=[
+"wall",
+]]
+editor/display_folded = true
+position = Vector2( 3052, -722 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Basket" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3089, 537 )
+[node name="Sprite" type="Sprite" parent="Tree2"]
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree2"]
+build_mode = 1
+polygon = PoolVector2Array( 42, 1276, -129, 1119, -170, 644, -188, -104, 102, -316, 491, -475, 503, -498, 360, -495, 91, -466, -192, -322, -193, -466, 34, -688, 143, -796, 253, -863, 498, -1000, 519, -1018, 118, -929, -199, -713, -210, -1107, -227, -1327, 60, -1470, 331, -1413, 123, -1544, 19, -1546, -230, -1495, -356, -1383, -436, -1429, -586, -1490, -716, -1444, -879, -1361, -876, -1350, -621, -1397, -462, -1308, -462, -904, -803, -971, -953, -1091, -973, -1091, -857, -893, -796, -813, -577, -764, -454, -729, -440, -211, -718, -324, -914, -379, -1138, -546, -1126, -487, -982, -250, -758, -191, -585, -6, -429, 196, -421, 727, -403, 1162, -555, 1302 )
+
+[node name="Ball" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4772, 467 )
+
+[node name="Basket" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4895, 465 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -85,8 +102,8 @@ pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 6 )
-script = ExtResource( 7 )
+theme = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
 anchor_left = 0.5
@@ -118,8 +135,8 @@ text = "Quit"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 6 )
-script = ExtResource( 8 )
+theme = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="CanvasLayer/WinMenu"]
 anchor_right = 1.0

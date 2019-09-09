@@ -71,7 +71,7 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="SnakeSegment3"]
 current = true
 limit_left = 0
-limit_right = 4096
+limit_right = 5120
 limit_bottom = 600
 limit_smoothed = true
 smoothing_enabled = true
