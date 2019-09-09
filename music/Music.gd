@@ -8,9 +8,9 @@ func _ready():
 
 # plays a random song that isn't the one given as an argument
 func _select_song(except: AudioStream):
-    var i = int(rand_range(0, len(songs)))
+    var i = int(rand_range(0, len(songs) - 1))
     var song = songs[i]
-    if song != except:
+    if song == except:
         # reroll
         _select_song(except)
     else:
