@@ -9,7 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 2 )
 
-[node name="Basket" type="StaticBody2D"]
+[node name="Basket" type="StaticBody2D" groups=[
+"wall",
+]]
 script = ExtResource( 1 )
 
 [node name="basket" type="Sprite" parent="."]
