@@ -4,7 +4,7 @@
 [ext_resource path="res://basket/basket.png" type="Texture" id=2]
 [ext_resource path="res://basket/yay.wav" type="AudioStream" id=3]
 [ext_resource path="res://basket/green_confetti.tres" type="Material" id=4]
-[ext_resource path="res://basket/red_confetti.tres" type="Material" id=5]
+[ext_resource path="res://basket/brown_confetti.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 2 )
@@ -45,7 +45,7 @@ one_shot = true
 explosiveness = 0.75
 process_material = ExtResource( 4 )
 
-[node name="RedConfetti" type="Particles2D" parent="."]
+[node name="BrownConfetti" type="Particles2D" parent="."]
 show_behind_parent = true
 position = Vector2( 0, 11 )
 rotation = -1.5708
