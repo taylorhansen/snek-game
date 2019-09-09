@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/grab.wav-ebf6cce738d89b25eeb6aae8395043ed.sample"
+path="res://.import/grab.wav-3335ff7e9fe7e53fdb5e24364a3272d7.sample"
 
 [deps]
 
-source_file="res://snake/segment/grab.wav"
-dest_files=[ "res://.import/grab.wav-ebf6cce738d89b25eeb6aae8395043ed.sample" ]
+source_file="res://snake/grab.wav"
+dest_files=[ "res://.import/grab.wav-3335ff7e9fe7e53fdb5e24364a3272d7.sample" ]
 
 [params]
 

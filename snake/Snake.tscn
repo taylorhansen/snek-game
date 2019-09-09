@@ -1,19 +1,72 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://snake/Snake.gd" type="Script" id=1]
-[ext_resource path="res://snake/segment/SnakeSegment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://snake/GrippableSnakeSegment.gd" type="Script" id=2]
+[ext_resource path="res://snake/snake_tail.png" type="Texture" id=3]
+[ext_resource path="res://snake/grab.wav" type="AudioStream" id=4]
+[ext_resource path="res://snake/grab_release.wav" type="AudioStream" id=5]
+[ext_resource path="res://snake/SnakeSegment.gd" type="Script" id=6]
+[ext_resource path="res://snake/snake_body.png" type="Texture" id=7]
+[ext_resource path="res://snake/snake_head.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Snake" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Tail" parent="." instance=ExtResource( 2 )]
+[node name="Tail" type="RigidBody2D" parent="."]
 position = Vector2( 0, 1 )
+gravity_scale = 2.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 2 )
 
-[node name="SnakeSegment2" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="Tail"]
+rotation = -1.5708
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tail"]
+shape = SubResource( 1 )
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="Tail"]
+stream = ExtResource( 4 )
+volume_db = 0.5
+pitch_scale = 2.0
+bus = "SFX"
+
+[node name="GrabReleaseSound" type="AudioStreamPlayer2D" parent="Tail"]
+stream = ExtResource( 5 )
+volume_db = 0.5
+pitch_scale = 2.0
+bus = "SFX"
+
+[node name="SnakeSegment2" type="RigidBody2D" parent="."]
 position = Vector2( 0, -39 )
+gravity_scale = 2.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 6 )
 
-[node name="SnakeSegment3" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="SnakeSegment2"]
+rotation = -1.5708
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeSegment2"]
+shape = SubResource( 1 )
+
+[node name="SnakeSegment3" type="RigidBody2D" parent="."]
 position = Vector2( 0, -79 )
+gravity_scale = 2.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="SnakeSegment3"]
+rotation = -1.5708
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeSegment3"]
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="SnakeSegment3"]
 current = true
@@ -29,11 +82,45 @@ drag_margin_bottom = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="SnakeSegment4" parent="." instance=ExtResource( 2 )]
+[node name="SnakeSegment4" type="RigidBody2D" parent="."]
 position = Vector2( 0, -119 )
+gravity_scale = 2.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 6 )
 
-[node name="Head" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="SnakeSegment4"]
+rotation = -1.5708
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeSegment4"]
+shape = SubResource( 1 )
+
+[node name="Head" type="RigidBody2D" parent="."]
 position = Vector2( 0, -159 )
+gravity_scale = 2.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Head"]
+rotation = -1.5708
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource( 1 )
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="Head"]
+stream = ExtResource( 4 )
+volume_db = 0.5
+pitch_scale = 2.0
+bus = "SFX"
+
+[node name="GrabReleaseSound" type="AudioStreamPlayer2D" parent="Head"]
+stream = ExtResource( 5 )
+volume_db = 0.5
+pitch_scale = 2.0
+bus = "SFX"
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 visible = false

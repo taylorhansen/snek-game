@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snake-segment.png-3dc810719adcc975996e82ca41383f2f.stex"
+path="res://.import/snake_body.png-35609c7d4c425ed578eaa73cfa497ba6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://snake/segment/snake-segment.png"
-dest_files=[ "res://.import/snake-segment.png-3dc810719adcc975996e82ca41383f2f.stex" ]
+source_file="res://snake/snake_body.png"
+dest_files=[ "res://.import/snake_body.png-35609c7d4c425ed578eaa73cfa497ba6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
