@@ -14,7 +14,7 @@ View our project page [here](https://taylorhansen.itch.io/snek-game).
 
 ## Credits
 * Taylor Hansen ([taylorhansen](https://github.com/taylorhansen)) - Coding.
-* Travis Allbright ([du0plex](https://github.com/du0plex) - Music, sound effects.
+* Travis Albright ([du0plex](https://github.com/du0plex), [waavy-soul](https://soundcloud.com/t-albright)) - Music, sound effects.
 * Nam Ngo ([alicially](https://github.com/alicially) - Art.
 * [Oswald-Medium](https://fonts.google.com/specimen/Oswald) font by Vernon Adams.
 
