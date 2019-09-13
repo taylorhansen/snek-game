@@ -19,5 +19,6 @@ View our project page [here](https://taylorhansen.itch.io/snek-game).
 * [Oswald-Medium](https://fonts.google.com/specimen/Oswald) font by Vernon Adams.
 
 ## Copyright
-* Code is under the [MIT license](/LICENSE).
-* Audio is under SoundCloud's Creative Commons licensing.
+* Code is under [MIT](/LICENSE-code).
+* Audio is under SoundCloud's licensing.
+* Art is under [Creative Commons Attribution CC BY 4.0](/LICENSE-art).
